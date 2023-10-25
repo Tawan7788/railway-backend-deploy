@@ -17,8 +17,9 @@ router.get('/:id', (req, res, next) => {
     })
 })
 
-router.post('/', (req, res, next) => {
-    Product.create(req.body, (err, post) => {
+router.post('/', async(req, res, next) => {
+    console.log(req.body);
+    await Product.create(req.body, (err, post) => {
         if (err) return next(err);
         res.json(post);
     })
